@@ -1,0 +1,7 @@
+ifconfig eth0 192.168.161.2/24
+route add -net 1.2.3.0 netmask 255.255.255.0 gw 192.168.161.253
+route add -net 192.168.163.0 netmask 255.255.255.0 gw 192.168.161.254
+route add -net 192.168.162.0 netmask 255.255.255.0 gw 192.168.161.254
+route add -net 192.168.164.0 netmask 255.255.255.0 gw 192.168.161.254
+
+apache2ctl start
