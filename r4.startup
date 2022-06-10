@@ -2,4 +2,4 @@ ifconfig eth1 1.2.3.254/24
 ifconfig eth0 192.168.161.253/24
 
 
-iptables -t nat -A POSTROUTING -s 192.168.161.254 -j SNAT --to-source 192.168.161.3-192.168.161.252
+iptables -t nat -A POSTROUTING -j MASQUERADE
