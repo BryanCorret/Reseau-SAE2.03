@@ -1,0 +1,2 @@
+ifconfig eth0 1.2.3.1/24
+route add -net 192.168.161.0 netmask 255.255.255.0 gw 1.2.3.254 eth0 

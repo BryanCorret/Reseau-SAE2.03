@@ -1,0 +1,13 @@
+ifconfig eth1 1.2.3.254/24
+ifconfig eth0 192.168.161.253/24
+
+
+iptables -t nat -A POSTROUTING -j MASQUERADE
+iptables -P FORWARD DROP
+
+iptables -t filter -A FORWARD -p tcp --dport 80 -j ACCEPT
+iptables -t filter -A FORWARD -p tcp --dport 22 -j ACCEPT
+iptables -t filter -A FORWARD -p tcp --sport 80 -j ACCEPT
+iptables -t filter -A FORWARD -p tcp --sport 22 -j ACCEPT
+iptables -A FORWARD -p icmp -s 192.168.161.0/24 -d 1.2.3.0/24 -j ACCEPT
+iptables -A FORWARD -p icmp -s 1.2.3.0/24 -d 192.168.161.0/24 -j ACCEPT
